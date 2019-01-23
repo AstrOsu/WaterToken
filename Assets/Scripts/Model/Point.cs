@@ -59,6 +59,7 @@ public struct Point
 
 	public override string ToString()
 	{
-		return string.Format("{0, 1}",x,y);
+		//Debug.Log("WE MADE IT");
+		return string.Format ("({0},{1})", x, y);
 	}
 }

@@ -1,16 +1,18 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using System;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-
-public class InfoEventArgs : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
+public class InfoEventArgs<T> : EventArgs 
+{
+	public T data;
+  
+	public InfoEventArgs() 
+	{
+		data = default(T);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+  
+	public InfoEventArgs (T incoming)
+	{
+		this.data = incoming;
 	}
 }

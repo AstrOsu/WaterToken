@@ -30,10 +30,12 @@ public class BoardCreationInspector : Editor
 			inUse.GrowArea();
 		if (GUILayout.Button("Shrink Area"))
 			inUse.ShrinkArea();
+		
 		if (GUILayout.Button("Save"))
 			inUse.Save();
 		if (GUILayout.Button("Load"))
 			inUse.Load();
+		
 		if (GUILayout.Button("Update Mark"))
 			inUse.UpdateMarker();	
 		if (GUI.changed)		
