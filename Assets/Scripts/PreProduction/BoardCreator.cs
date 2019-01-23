@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+#if UNITY_EDITOR
 using UnityEditor;
-
+#endif
 public class BoardCreator : MonoBehaviour 
 {
 	[SerializeField] GameObject tileViewPrefab;
 	[SerializeField] GameObject SelectionIndicatorPrefab;
+	//GameObject selectionMarker;
 	[SerializeField] const int  widthMax = 16;
 	[SerializeField] const int depthMax = 16;
 	[SerializeField] const int heightMax = 10;
@@ -22,8 +24,8 @@ public class BoardCreator : MonoBehaviour
 		{
 			if (_marker == null)
 			{
-				GameObject instance = Instantiate(SelectionIndicatorPrefab) as GameObject;
-				_marker = instance.transform;
+				GameObject selectionMarker = Instantiate(SelectionIndicatorPrefab) as GameObject;
+				_marker = selectionMarker.transform;
 			}
 			return _marker;
 		}
@@ -124,19 +126,20 @@ public class BoardCreator : MonoBehaviour
 		return instance.GetComponent<Tile>();
 	}
 
-	public void UpdateMarker()
+	public void UpdateMarker ()
 	{
 		Tile t = tiles.ContainsKey(pos) ? tiles[pos] : null;
 		marker.localPosition = t != null ? t.center : new Vector3(pos.x, 0, pos.y);
 	}
 
-	public void Clear()
+	public void Clear ()
 	{
   		for (int i = transform.childCount - 1; i >= 0; i--)
     		DestroyImmediate(transform.GetChild(i).gameObject);
   		tiles.Clear();
 	}
 
+	#if UNITY_EDITOR
 	public void Save ()
 	{
   		string filePath = Application.dataPath + "/Resources/Levels";
@@ -161,7 +164,7 @@ public class BoardCreator : MonoBehaviour
 			AssetDatabase.CreateFolder("Assets/Resources", "Levels");
 		AssetDatabase.Refresh();
 	}
-
+	#endif
 	public void Load ()
 	{
 		Clear();

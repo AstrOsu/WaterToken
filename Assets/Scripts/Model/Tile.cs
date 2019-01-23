@@ -44,7 +44,7 @@ public class Tile : MonoBehaviour {
 
     private void Update ()
     {
-    transform.localPosition = new Vector3( pos.x, height * step / 2f, pos.y );
-    transform.localScale = new Vector3(1, height * step, 1);
+        transform.localPosition = new Vector3( pos.x, height * step / 2f, pos.y );
+        transform.localScale = new Vector3(1, height * step, 1);
     }
 }

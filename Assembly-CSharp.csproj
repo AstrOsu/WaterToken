@@ -61,6 +61,8 @@
      <Compile Include="Assets\Scripts\Animation\TransformScaleTweener.cs" />
      <Compile Include="Assets\Scripts\Animation\Tweener.cs" />
      <Compile Include="Assets\Scripts\Animation\Vector3Tweener.cs" />
+     <Compile Include="Assets\Scripts\Controller\InputControler.cs" />
+     <Compile Include="Assets\Scripts\Event\InfoEventArgs.cs" />
      <Compile Include="Assets\Scripts\Model\MapData.cs" />
      <Compile Include="Assets\Scripts\Model\Point.cs" />
      <Compile Include="Assets\Scripts\Model\Tile.cs" />
