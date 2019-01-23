@@ -50,7 +50,7 @@ public class BoardCreator : MonoBehaviour
 		return new Rect(x, y, w, h);
 	}
 
-	void GrowRect (Rect rect)
+	public void GrowRect (Rect rect)
 	{
 		for (int y = (int)rect.yMin; y < (int)rect.yMax; ++y)
 		{
@@ -62,7 +62,7 @@ public class BoardCreator : MonoBehaviour
 		}
 	}
 
-	void ShrinkRect (Rect rect)
+	public void ShrinkRect (Rect rect)
 	{
 		for (int y = (int)rect.yMin; y < (int)rect.yMax; ++y)
 		{
@@ -124,13 +124,13 @@ public class BoardCreator : MonoBehaviour
 		return instance.GetComponent<Tile>();
 	}
 
-	public void UpdateMarker ()
+	public void UpdateMarker()
 	{
 		Tile t = tiles.ContainsKey(pos) ? tiles[pos] : null;
 		marker.localPosition = t != null ? t.center : new Vector3(pos.x, 0, pos.y);
 	}
 
-	public void Clear ()
+	public void Clear()
 	{
   		for (int i = transform.childCount - 1; i >= 0; i--)
     		DestroyImmediate(transform.GetChild(i).gameObject);
