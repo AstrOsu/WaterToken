@@ -38,7 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4159814582382648}
   m_Layer: 0
-  m_Name: Jump
+  m_Name: Jumper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,6 +52,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4056319602707782}
+  - component: {fileID: 114421350708717236}
   m_Layer: 0
   m_Name: Villian
   m_TagString: Untagged
@@ -287,6 +288,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1726237456617922}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114421350708717236
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1676012832794888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8654af76ad235c34694d1c1317b1212a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dir: 2
 --- !u!135 &135554600947831342
 SphereCollider:
   m_ObjectHideFlags: 1

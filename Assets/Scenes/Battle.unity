@@ -243,6 +243,13 @@ MonoBehaviour:
   pos:
     x: 0
     y: 0
+  heroPrefab: {fileID: 1629733531460914, guid: 6b2bb6dfd940ce34189b770468772bae, type: 2}
+  villianPrefab: {fileID: 1676012832794888, guid: 24451c2311529664ab89d4f00d2ca3f9,
+    type: 2}
+  currentUnit: {fileID: 0}
+  turn: {fileID: 0}
+  units: []
+  badUnits: []
 --- !u!4 &837181183
 Transform:
   m_ObjectHideFlags: 0

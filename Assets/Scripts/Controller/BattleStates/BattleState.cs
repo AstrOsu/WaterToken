@@ -10,6 +10,11 @@ public abstract class BattleState : State
 	public LevelData levelData { get { return owner.levelData; }}
 	public Transform SelectionIndicator { get { return owner.SelectionIndicator; }}
 	public Point pos { get { return owner.pos; } set { owner.pos = value; }}
+	public Turn turn { get { return owner.turn; }}
+	public List<Unit> units { get { return owner.units; }}
+	public List<Unit> badUnits { get { return owner.badUnits; }}
+
+
 	protected virtual void Awake ()
 	{
 		owner = GetComponent<BattleController>();
@@ -17,18 +22,18 @@ public abstract class BattleState : State
 	protected override void AddListeners ()
 	{
 		InputControler.move += OnMove;
-		InputControler.click += OnFire;
+		InputControler.click += OnClick;
 	}
 	
 	protected override void RemoveListeners ()
 	{
 		InputControler.move -= OnMove;
-		InputControler.click -= OnFire;
+		InputControler.click -= OnClick;
 	}
 	protected virtual void OnMove (object sender, InfoEventArgs<Point> e)
 	{	}
 	
-	protected virtual void OnFire (object sender, InfoEventArgs<int> e)
+	protected virtual void OnClick (object sender, InfoEventArgs<int> e)
 	{	}
 
 	protected virtual void SelectTile (Point p)

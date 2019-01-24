@@ -64,9 +64,12 @@
      <Compile Include="Assets\Scripts\Common\States\State.cs" />
      <Compile Include="Assets\Scripts\Common\States\StateMachine.cs" />
      <Compile Include="Assets\Scripts\Controller\BattleController.cs" />
+     <Compile Include="Assets\Scripts\Controller\BattleStates\AbilityTargetState.cs" />
      <Compile Include="Assets\Scripts\Controller\BattleStates\BattleState.cs" />
      <Compile Include="Assets\Scripts\Controller\BattleStates\InitBattleState.cs" />
+     <Compile Include="Assets\Scripts\Controller\BattleStates\MoveSequenceState.cs" />
      <Compile Include="Assets\Scripts\Controller\BattleStates\MoveTargetState.cs" />
+     <Compile Include="Assets\Scripts\Controller\BattleStates\UnitState.cs" />
      <Compile Include="Assets\Scripts\Controller\CatchEvents.cs" />
      <Compile Include="Assets\Scripts\Controller\InputControler.cs" />
      <Compile Include="Assets\Scripts\enum\Directions.cs" />
@@ -74,10 +77,17 @@
      <Compile Include="Assets\Scripts\Extensions\DirectionsExtension.cs" />
      <Compile Include="Assets\Scripts\Model\LevelData.cs" />
      <Compile Include="Assets\Scripts\Model\Point.cs" />
+     <Compile Include="Assets\Scripts\Model\Turn.cs" />
      <Compile Include="Assets\Scripts\PreProduction\BoardCreator.cs" />
+     <Compile Include="Assets\Scripts\View Model\Ability\AbilityRange.cs" />
+     <Compile Include="Assets\Scripts\View Model\Ability\InfiniteRange.cs" />
+     <Compile Include="Assets\Scripts\View Model\Ability\MeleeRange.cs" />
      <Compile Include="Assets\Scripts\View Model\Board.cs" />
      <Compile Include="Assets\Scripts\View Model\CameraRig.cs" />
+     <Compile Include="Assets\Scripts\View Model\Movement\Movement.cs" />
+     <Compile Include="Assets\Scripts\View Model\Movement\Walk.cs" />
      <Compile Include="Assets\Scripts\View Model\Tile.cs" />
+     <Compile Include="Assets\Scripts\View Model\Unit.cs" />
  <Reference Include="UnityEngine.CoreModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2017.4.18f1/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
  </Reference>

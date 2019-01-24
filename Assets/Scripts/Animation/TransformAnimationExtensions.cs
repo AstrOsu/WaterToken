@@ -34,9 +34,9 @@ public static class TransformAnimationExtensions
 	{
 		return MoveToLocal (t, position, duration, Tweener.DefaultEquation);
 	}
-	
 	public static Tweener MoveToLocal (this Transform t, Vector3 position, float duration, Func<float, float, float, float> equation)
 	{
+		Debug.Log( t.transform.position.ToString());
 		TransformLocalPositionTweener tweener = t.gameObject.AddComponent<TransformLocalPositionTweener> ();
 		tweener.startValue = t.localPosition;
 		tweener.endValue = position;
