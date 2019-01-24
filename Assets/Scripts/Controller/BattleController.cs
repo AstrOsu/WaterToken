@@ -8,13 +8,11 @@ public class BattleController : StateMachine
 	public Board board;
 	public LevelData levelData;
 	public Transform SelectionIndicator;
-	public Point pos;
-
+	public Point pos = new Point(8, 8);
 	public GameObject heroPrefab;
 	public GameObject villianPrefab;
 	public Unit currentUnit;
 	public Tile currentTile { get { return board.GetTile(pos); }}	
-
 	public Turn turn = new Turn();
 	public List<Unit> units = new List<Unit>();
 	//public List<Unit> badUnits = new List<Unit>();
@@ -22,5 +20,6 @@ public class BattleController : StateMachine
 	void Start ()
 	{
 		ChangeState<InitBattleState>();
+		
 	}
 }

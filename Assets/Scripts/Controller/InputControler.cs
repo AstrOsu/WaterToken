@@ -8,6 +8,7 @@ public class InputControler : MonoBehaviour
 {
 	public static event EventHandler<InfoEventArgs<Point>> move;
 	public static event EventHandler<InfoEventArgs<int>> click;
+	//public static event EventHandler<InfoEventArgs<int>> scroll;  Currently only used in Camera 
 	Repeater h = new Repeater("Horizontal"), v = new Repeater("Vertical");
 
 	//accept, back, and menu/pause
@@ -20,7 +21,8 @@ public class InputControler : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		int x = h.Update();
+		//Debug.Log(Input.GetAxis("Camera Rotate"));
+		int x = h.Update(), i;
 		int y = v.Update();
 		if (x != 0 || y != 0)
   		{
@@ -28,14 +30,20 @@ public class InputControler : MonoBehaviour
       			move(this, new InfoEventArgs<Point>(new Point(x, y)));
   		}
 		//Debug.Log(Input.GetAxisRaw("Horizontal"));
-		for (int i = 0; i < 3; i++)
+		for (i = 0; i < 3; i++)
 		{
 			if (Input.GetButtonUp(clicks[i]))
 			{
 				if (click != null)
-				click(this, new InfoEventArgs<int>(i));
+					click(this, new InfoEventArgs<int>(i));
 			}
 		}
+		/* 
+		if((i = (int)(Input.GetAxis("Camera Rotate"))) != 0)
+		{
+			if(scroll != null)
+				scroll(this, new InfoEventArgs<int>(i));
+		}*/
 	}
 }
 

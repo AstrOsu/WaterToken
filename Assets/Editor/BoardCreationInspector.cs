@@ -20,8 +20,12 @@ public class BoardCreationInspector : Editor
 		DrawDefaultInspector();
 		if (GUILayout.Button("Clear"))
 			inUse.Clear();
+		if (GUILayout.Button("Copy"))
+			inUse.Copy();
 		if (GUILayout.Button("Deault Grid"))
-			inUse.GrowRect(new Rect(0f, 0f, 16f, 16f));
+			inUse.GrowRect(new Rect(0f, 0f, 24f, 24f));
+		if (GUILayout.Button("Specific grid"))
+			inUse.GrowARect();
 		if (GUILayout.Button("Grow"))
 			inUse.GrowSingle();
 		if (GUILayout.Button("Shrink"))
@@ -30,7 +34,22 @@ public class BoardCreationInspector : Editor
 			inUse.GrowArea();
 		if (GUILayout.Button("Shrink Area"))
 			inUse.ShrinkArea();
-		
+		if (GUILayout.Button("Add to Ps"))
+			{
+				for (int y = (int)inUse.rec.yMin; y <= (int)inUse.rec.yMax; ++y)
+				{
+					for (int x = (int)inUse.rec.xMin; x <= (int)inUse.rec.xMax; ++x)
+					{
+						inUse.ps.Add(new Point(x,y));
+					}
+				}
+			}
+		if (GUILayout.Button("Clear Ps"))
+			inUse.ps.Clear();
+		if (GUILayout.Button("Grow Ps"))
+			inUse.GrowPs();
+		if (GUILayout.Button("Shrink Ps"))
+			inUse.ShrinkPs();
 		if (GUILayout.Button("Save"))
 			inUse.Save();
 		if (GUILayout.Button("Load"))

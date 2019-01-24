@@ -24,6 +24,7 @@ public class Board : MonoBehaviour
 		for (int i = 0; i < data.tiles.Count; ++i)
 		{
 			GameObject instance = Instantiate(tilePrefab) as GameObject;
+			instance.transform.parent = gameObject.transform;
 			Tile t = instance.GetComponent<Tile>();
 			t.Load(data.tiles[i]);
 			tiles.Add(t.pos, t);

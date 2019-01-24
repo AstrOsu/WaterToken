@@ -10,13 +10,15 @@ public class BoardCreator : MonoBehaviour
 	[SerializeField] GameObject tileViewPrefab;
 	[SerializeField] GameObject SelectionIndicatorPrefab;
 	//GameObject selectionMarker;
-	[SerializeField] const int  widthMax = 16;
-	[SerializeField] const int depthMax = 16;
-	[SerializeField] const int heightMax = 10;
-	[SerializeField] Point pos;
+	[SerializeField] const int widthMax = 24;
+	[SerializeField] const int depthMax = 24;
+	[SerializeField] const int heightMax = 30;
+	public Point pos;
 	[SerializeField] LevelData ld;
-	Dictionary<Point, Tile> tiles = new Dictionary<Point, Tile>();
-	[SerializeField] string fName;
+	public Dictionary<Point, Tile> tiles = new Dictionary<Point, Tile>();
+	public string fName;
+	public Rect rec;
+	public List<Point> ps;
 	Transform _marker;
 	Transform marker
 	{
@@ -31,10 +33,30 @@ public class BoardCreator : MonoBehaviour
 		}
 	}
 
+	public void GrowPs()
+	{
+		foreach (Point p in ps)
+		{
+			GrowSingle(p);
+		}
+	}
+
+	public void ShrinkPs()
+	{
+		foreach (Point p in ps)
+		{
+			ShrinkSingle(p);
+		}
+	}
+
 	public void GrowArea ()
 	{
 		Rect r = RandomRect();
 		GrowRect(r);
+	}
+	public void GrowARect()
+	{
+		GrowRect(this.rec);
 	}
 	public void ShrinkArea ()
 	{
@@ -54,9 +76,9 @@ public class BoardCreator : MonoBehaviour
 
 	public void GrowRect (Rect rect)
 	{
-		for (int y = (int)rect.yMin; y < (int)rect.yMax; ++y)
+		for (int y = (int)rect.yMin; y <= (int)rect.yMax; ++y)
 		{
-			for (int x = (int)rect.xMin; x < (int)rect.xMax; ++x)
+			for (int x = (int)rect.xMin; x <= (int)rect.xMax; ++x)
 			{
 				Point p = new Point(x, y);
 				GrowSingle(p);
@@ -102,9 +124,12 @@ public class BoardCreator : MonoBehaviour
 	}
 	void GrowSingle (Point p)
 	{
-		Tile t = GetOrCreate(p);
-		if (t.height < heightMax)
-			t.Grow();
+		if(p.x <= widthMax && p.y <= depthMax)
+		{	
+			Tile t = GetOrCreate(p);
+			if (t.height < heightMax)
+				t.Grow();
+		}
 	}
 
 	Tile GetOrCreate (Point p)
@@ -179,12 +204,27 @@ public class BoardCreator : MonoBehaviour
 	}
 
 	// Use this for initialization
-	void Start () {
-		
+	void Start () 
+	{
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+	public void Copy()
+	{
+		tiles.Clear();
+		Tile[] temp = GetComponentsInChildren<Tile>();
+		foreach (Tile v in temp)
+		{
+			tiles.Add(new Point((int)v.transform.position.x, (int)v.transform.position.z), v);
+			Debug.Log(tiles.Count);
+		}
+
+	}
+
+//
 }

@@ -7,13 +7,13 @@ public class Walk : Movement
 
 	protected override bool ExpandSearch (Tile from, Tile to)
 	{
-	// Skip if the distance in height between the two tiles is more than the unit can jump
-	if ((Mathf.Abs(from.height - to.height) > jumpHeight))
-		return false;
-	// Skip if the tile is occupied by an enemy
-	if (to.content != null)
-		return false;
-	return base.ExpandSearch(from, to);
+		// Skip if the distance in height between the two tiles is more than the unit can jump
+		if ((Mathf.Abs(from.height - to.height) > jumpHeight))
+			return false;
+		// Skip if the tile is occupied by an enemy
+		if (to.content != null)
+			return false;
+		return base.ExpandSearch(from, to);
 	}
 
 	public override IEnumerator Traverse (Tile tile)
