@@ -16,7 +16,7 @@ public class BoardCreator : MonoBehaviour
 	[SerializeField] Point pos;
 	[SerializeField] LevelData ld;
 	Dictionary<Point, Tile> tiles = new Dictionary<Point, Tile>();
-
+	[SerializeField] string fName;
 	Transform _marker;
 	Transform marker
 	{
@@ -151,7 +151,7 @@ public class BoardCreator : MonoBehaviour
   		foreach (Tile t in tiles.Values)
     		board.tiles.Add( new Vector3(t.pos.x, t.height, t.pos.y) );
   
-  		string fileName = string.Format("Assets/Resources/Levels/{1}.asset", filePath, name);
+  		string fileName = string.Format("Assets/Resources/Levels/{1}.asset", filePath, fName);
   		AssetDatabase.CreateAsset(board, fileName);
 	}
 	void CreateSaveDirectory ()

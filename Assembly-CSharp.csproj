@@ -61,13 +61,23 @@
      <Compile Include="Assets\Scripts\Animation\TransformScaleTweener.cs" />
      <Compile Include="Assets\Scripts\Animation\Tweener.cs" />
      <Compile Include="Assets\Scripts\Animation\Vector3Tweener.cs" />
+     <Compile Include="Assets\Scripts\Common\States\State.cs" />
+     <Compile Include="Assets\Scripts\Common\States\StateMachine.cs" />
+     <Compile Include="Assets\Scripts\Controller\BattleController.cs" />
+     <Compile Include="Assets\Scripts\Controller\BattleStates\BattleState.cs" />
+     <Compile Include="Assets\Scripts\Controller\BattleStates\InitBattleState.cs" />
+     <Compile Include="Assets\Scripts\Controller\BattleStates\MoveTargetState.cs" />
      <Compile Include="Assets\Scripts\Controller\CatchEvents.cs" />
      <Compile Include="Assets\Scripts\Controller\InputControler.cs" />
+     <Compile Include="Assets\Scripts\enum\Directions.cs" />
      <Compile Include="Assets\Scripts\Event\InfoEventArgs.cs" />
-     <Compile Include="Assets\Scripts\Model\MapData.cs" />
+     <Compile Include="Assets\Scripts\Extensions\DirectionsExtension.cs" />
+     <Compile Include="Assets\Scripts\Model\LevelData.cs" />
      <Compile Include="Assets\Scripts\Model\Point.cs" />
-     <Compile Include="Assets\Scripts\Model\Tile.cs" />
      <Compile Include="Assets\Scripts\PreProduction\BoardCreator.cs" />
+     <Compile Include="Assets\Scripts\View Model\Board.cs" />
+     <Compile Include="Assets\Scripts\View Model\CameraRig.cs" />
+     <Compile Include="Assets\Scripts\View Model\Tile.cs" />
  <Reference Include="UnityEngine.CoreModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2017.4.18f1/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
  </Reference>

@@ -17,7 +17,8 @@ public class Breathing : MonoBehaviour {
      
     void Update () 
     { 
-        Vector3 v = pos, s = scale;
+        Vector3 v = transform.parent.position + pos;
+        Vector3 s = scale;
         switch (direction)
         {
             case 0:
