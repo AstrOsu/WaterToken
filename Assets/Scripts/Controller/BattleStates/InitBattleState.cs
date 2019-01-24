@@ -31,7 +31,7 @@ public class InitBattleState : BattleState
 		for (int i = 0; i < 3; ++i)
 		{
 			GameObject theDude = isGood ? Instantiate(owner.heroPrefab) as GameObject : Instantiate(owner.villianPrefab) as GameObject;
-			Point p = new Point((int)levelData.tiles[i + x].x, (int)levelData.tiles[i + (x*10)].z);
+			Point p = new Point((int)levelData.tiles[i + x].x, (int)levelData.tiles[i + (x*17)].z);
 			Unit unit = theDude.GetComponent<Unit>();
 			unit.Place(board.GetTile(p));
 			unit.Match();
@@ -40,10 +40,7 @@ public class InitBattleState : BattleState
 			m.jumpHeight = 2 + i;
 			owner.currentUnit = theDude.GetComponent<Unit>();
 			unit.isGood = isGood;
-			if(unit.isGood)
-				units.Add(unit);
-			else
-				badUnits.Add(unit);
+			units.Add(unit);
 		}
 	}
 }

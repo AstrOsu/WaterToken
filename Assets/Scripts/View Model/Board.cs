@@ -10,7 +10,7 @@ public class Board : MonoBehaviour
 	public Dictionary<Point, Tile> tiles = new Dictionary<Point, Tile>();
 	Point[] moves = new Point[4] {new Point(1,0), new Point(0,1), new Point(-1,0), new Point (0,-1)};
 	Color selectedTileColor = Color.cyan;
-	Color defaultTileColor = Color.clear;
+	Color defaultTileColor = Color.white;
 	public void Load (LevelData data)
 	{
 	//	Debug.Log(data.ToString());

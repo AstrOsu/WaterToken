@@ -12,7 +12,7 @@ public abstract class BattleState : State
 	public Point pos { get { return owner.pos; } set { owner.pos = value; }}
 	public Turn turn { get { return owner.turn; }}
 	public List<Unit> units { get { return owner.units; }}
-	public List<Unit> badUnits { get { return owner.badUnits; }}
+	//public List<Unit> badUnits { get { return owner.badUnits; }}
 
 
 	protected virtual void Awake ()
