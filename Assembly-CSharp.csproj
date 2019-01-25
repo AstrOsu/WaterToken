@@ -72,6 +72,7 @@
      <Compile Include="Assets\Scripts\Controller\BattleStates\UnitState.cs" />
      <Compile Include="Assets\Scripts\Controller\CatchEvents.cs" />
      <Compile Include="Assets\Scripts\Controller\InputControler.cs" />
+     <Compile Include="Assets\Scripts\Controller\TurnController.cs" />
      <Compile Include="Assets\Scripts\enum\Directions.cs" />
      <Compile Include="Assets\Scripts\Event\InfoEventArgs.cs" />
      <Compile Include="Assets\Scripts\Extensions\DirectionsExtension.cs" />

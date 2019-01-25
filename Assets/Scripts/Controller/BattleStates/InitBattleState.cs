@@ -12,14 +12,14 @@ public class InitBattleState : BattleState
 	IEnumerator Init ()
 	{
 		board.Load( levelData );
+		SelectTile(new Point(10,10));
+		//SelectionIndicator.localPosition = board.tiles[new Point(10,10)].center;
 		//Debug.Log("test");
 		//Debug.Log(string.Format ("({0},{1})", levelData.tiles[0], levelData.tiles));
-		SelectTile(new Point(8, 8));
 		SpawnTestUnits(false);
 		SpawnTestUnits(true);
 		yield return null;
 		owner.ChangeState<UnitState>();
-		SelectTile(new Point(8, 8));
 	}
 
 	void SpawnTestUnits (bool isGood)
@@ -40,6 +40,11 @@ public class InitBattleState : BattleState
 			m.range = 12 - i;
 			m.jumpHeight = 4 + (2*i);
 			unit.isGood = isGood;
+			AbilityRange a1 = theDude.AddComponent(typeof(MeleeRange)) as AbilityRange;
+			unit.attackRange1 = a1;
+
+			a1 = theDude.AddComponent(typeof(InfiniteRange)) as AbilityRange;
+			unit.attackRange2 = a1;
 			units.Add(unit);
 		}
 	}

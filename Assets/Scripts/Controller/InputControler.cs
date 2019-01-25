@@ -7,12 +7,14 @@ using UnityEngine;
 public class InputControler : MonoBehaviour 
 {
 	public static event EventHandler<InfoEventArgs<Point>> move;
+	public static event EventHandler<InfoEventArgs<Point>> scroll;  //Currently only used in Camera 
 	public static event EventHandler<InfoEventArgs<int>> click;
-	//public static event EventHandler<InfoEventArgs<int>> scroll;  Currently only used in Camera 
+	public static event EventHandler<InfoEventArgs<int>> key;
 	Repeater h = new Repeater("Horizontal"), v = new Repeater("Vertical");
 
 	//accept, back, and menu/pause
 	string[] clicks = new string[] {"Fire1", "Fire2", "Fire3"};
+	string[] keys = new string[] {"Fire4", "Fire5", "Fire6"};
 
 	// Use this for initialization
 	void Start () {
@@ -38,12 +40,19 @@ public class InputControler : MonoBehaviour
 					click(this, new InfoEventArgs<int>(i));
 			}
 		}
-		/* 
-		if((i = (int)(Input.GetAxis("Camera Rotate"))) != 0)
+
+		if(key != null)
+			for (i = 0; i < 3; i++)
+				if (Input.GetButtonUp(keys[i]))
+					key(this, new InfoEventArgs<int>(i));
+		
+		if(scroll != null)
 		{
-			if(scroll != null)
-				scroll(this, new InfoEventArgs<int>(i));
-		}*/
+			i = (int)(Input.GetAxis("Camera Rotate"));
+			int i2 = (int)(Input.GetAxis("Mouse ScrollWheel"));
+			if(i != 0 || i2 != 0)
+				scroll(this, new InfoEventArgs<Point>(new Point(i, i2)));
+		}
 	}
 }
 

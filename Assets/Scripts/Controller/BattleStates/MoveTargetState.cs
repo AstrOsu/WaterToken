@@ -32,7 +32,8 @@ public class MoveTargetState : BattleState
 		if(e.data == 1)
 			owner.ChangeState<UnitState>();
 
-		else if(e.data == 2) {}
+		else if(e.data == 2) 
+			owner.ChangeState<AbilityTargetState>();
 			//insert voiceline
 		
 		else if(tiles.Contains(owner.currentTile))

@@ -8,7 +8,9 @@ public class Tile : MonoBehaviour {
     public Point pos;
     public int height;
     public GameObject content;
+	public int moveCost = 1;
     [HideInInspector] public Tile prev;
+
     [HideInInspector] public int distance;
 
     public Vector3 center { get { return new Vector3(pos.x, height * step, pos.y); }}

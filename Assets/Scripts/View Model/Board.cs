@@ -9,8 +9,8 @@ public class Board : MonoBehaviour
 	//[SerializeField] LevelData ld;
 	public Dictionary<Point, Tile> tiles = new Dictionary<Point, Tile>();
 	Point[] moves = new Point[4] {new Point(1,0), new Point(0,1), new Point(-1,0), new Point (0,-1)};
-	Color selectedTileColor = Color.cyan;
-	Color defaultTileColor = Color.white;
+	public static Color[] tileColors = {Color.white, Color.cyan, Color.red};
+	Color defaultTileColor = tileColors[0];
 	public void Load (LevelData data)
 	{
 	//	Debug.Log(data.ToString());
@@ -92,13 +92,21 @@ public class Board : MonoBehaviour
 
 	public void SelectTiles (List<Tile> tiles)
 	{
-		for (int i = tiles.Count - 1; i >= 0; i--)
-			tiles[i].GetComponent<Renderer>().material.SetColor("_Color", selectedTileColor);
+		SelectTiles(tiles, 1);
 	}
-	public void DeSelectTiles (List<Tile> tiles)
+	public void SelectTiles (List<Tile> tiles, int color)
 	{
 		for (int i = tiles.Count - 1; i >= 0; i--)
-			tiles[i].GetComponent<Renderer>().material.SetColor("_Color", defaultTileColor);
+			tiles[i].GetComponent<Renderer>().material.SetColor("_Color", tileColors[color]);
+	}
+
+	public void DeSelectTiles (List<Tile> tiles)
+	{
+		if(tiles != null)
+			for (int i = tiles.Count - 1; i >= 0; i--)
+				tiles[i].GetComponent<Renderer>().material.SetColor("_Color", defaultTileColor);
+		else
+			Debug.Log("Null Tile Set");
 	}
 
 }
