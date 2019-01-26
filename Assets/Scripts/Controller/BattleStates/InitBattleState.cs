@@ -12,7 +12,7 @@ public class InitBattleState : BattleState
 	IEnumerator Init ()
 	{
 		board.Load( levelData );
-		SelectTile(new Point(10,10));
+		//SelectTile(new Point(10,10));
 		//SelectionIndicator.localPosition = board.tiles[new Point(10,10)].center;
 		//Debug.Log("test");
 		//Debug.Log(string.Format ("({0},{1})", levelData.tiles[0], levelData.tiles));
@@ -40,7 +40,12 @@ public class InitBattleState : BattleState
 			m.range = 12 - i;
 			m.jumpHeight = 4 + (2*i);
 			unit.isGood = isGood;
-			AbilityRange a1 = theDude.AddComponent(typeof(MeleeRange)) as AbilityRange;
+
+			AbilityRange a1;
+			if(isGood)
+				a1 = theDude.AddComponent(typeof(MeleeRange)) as AbilityRange;
+			else
+				a1 = theDude.AddComponent(typeof(MeleeReach)) as AbilityRange;
 			unit.attackRange1 = a1;
 
 			a1 = theDude.AddComponent(typeof(InfiniteRange)) as AbilityRange;

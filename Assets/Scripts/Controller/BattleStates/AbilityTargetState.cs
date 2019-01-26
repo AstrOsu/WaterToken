@@ -31,6 +31,12 @@ public class AbilityTargetState : BattleState
 		InputControler.click += OnClick;
 		InputControler.key += OnKey;
 	}
+	protected override void RemoveListeners ()
+	{
+		InputControler.move -= OnMove;
+		InputControler.click -= OnClick;
+		InputControler.key -= OnKey;
+	}
 	protected override void OnMove (object sender, InfoEventArgs<Point> e)
 	{
 		if (ar.directionOriented)

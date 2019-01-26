@@ -83,6 +83,7 @@
      <Compile Include="Assets\Scripts\View Model\Ability\AbilityRange.cs" />
      <Compile Include="Assets\Scripts\View Model\Ability\InfiniteRange.cs" />
      <Compile Include="Assets\Scripts\View Model\Ability\MeleeRange.cs" />
+     <Compile Include="Assets\Scripts\View Model\Ability\MeleeReach.cs" />
      <Compile Include="Assets\Scripts\View Model\Board.cs" />
      <Compile Include="Assets\Scripts\View Model\CameraRig.cs" />
      <Compile Include="Assets\Scripts\View Model\Movement\Movement.cs" />

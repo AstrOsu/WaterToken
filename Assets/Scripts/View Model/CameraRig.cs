@@ -13,6 +13,7 @@ public class CameraRig : MonoBehaviour
 	void Awake ()
 	{
 		trans = transform;
+		trans.position = Vector3.Lerp(trans.position, new Vector3(10,.25f,10), 0);
 		AddListeners();
 	}
 	protected void AddListeners ()

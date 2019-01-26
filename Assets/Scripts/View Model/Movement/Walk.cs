@@ -44,7 +44,7 @@ public class Walk : Movement
 	}
 	IEnumerator WalkTo (Tile target)
 	{
-		Tweener tweener = transform.MoveTo(target.center, 0.2f, EasingEquations.Linear);
+		Tweener tweener = transform.MoveTo(target.center, 0.1f, EasingEquations.Linear);
 		while (tweener != null)
 			yield return null;
 	}

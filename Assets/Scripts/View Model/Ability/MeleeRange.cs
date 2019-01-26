@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class MeleeRange : AbilityRange 
 {
+	void Awake()
+	{
+		horizontal = 1;
+		vertical = 1;
+	}
+	
 	public override List<Tile> GetTilesInRange (Board board)
 	{
 		return board.Search(unit.tile, ExpandSearch);

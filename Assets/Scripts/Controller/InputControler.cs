@@ -60,7 +60,7 @@ public class InputControler : MonoBehaviour
 class Repeater
 {
 	const float threshold = 0.4f;
-	const float rate = 0.25f;
+	const float rate = 0.05f;
 	float next;
 	bool held;
 	string axis;
