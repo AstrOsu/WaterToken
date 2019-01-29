@@ -49,7 +49,7 @@ public class InputControler : MonoBehaviour
 		if(scroll != null)
 		{
 			i = (int)(Input.GetAxis("Camera Rotate"));
-			int i2 = (int)(Input.GetAxis("Mouse ScrollWheel"));
+			int i2 = (int)(Input.GetAxis("Wheel2"));
 			if(i != 0 || i2 != 0)
 				scroll(this, new InfoEventArgs<Point>(new Point(i, i2)));
 		}
