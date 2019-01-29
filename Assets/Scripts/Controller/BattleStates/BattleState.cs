@@ -23,12 +23,14 @@ public abstract class BattleState : State
 	{
 		InputControler.move += OnMove;
 		InputControler.click += OnClick;
+		InputControler.key += OnKey;
 	}
 	
 	protected override void RemoveListeners ()
 	{
 		InputControler.move -= OnMove;
 		InputControler.click -= OnClick;
+		InputControler.key -= OnKey;
 	}
 	protected virtual void OnMove (object sender, InfoEventArgs<Point> e)
 	{	}

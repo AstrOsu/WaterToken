@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\Common\States\State.cs" />
      <Compile Include="Assets\Scripts\Common\States\StateMachine.cs" />
      <Compile Include="Assets\Scripts\Controller\BattleController.cs" />
+     <Compile Include="Assets\Scripts\Controller\BattleStates\AbilitySequenceState.cs" />
      <Compile Include="Assets\Scripts\Controller\BattleStates\AbilityTargetState.cs" />
      <Compile Include="Assets\Scripts\Controller\BattleStates\BattleState.cs" />
      <Compile Include="Assets\Scripts\Controller\BattleStates\InitBattleState.cs" />

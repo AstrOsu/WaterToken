@@ -25,18 +25,7 @@ public class AbilityTargetState : BattleState
 		//statPanelController.HidePrimary();
 		//statPanelController.HideSecondary();
 	}
-	protected override void AddListeners ()
-	{
-		InputControler.move += OnMove;
-		InputControler.click += OnClick;
-		InputControler.key += OnKey;
-	}
-	protected override void RemoveListeners ()
-	{
-		InputControler.move -= OnMove;
-		InputControler.click -= OnClick;
-		InputControler.key -= OnKey;
-	}
+
 	protected override void OnMove (object sender, InfoEventArgs<Point> e)
 	{
 		if (ar.directionOriented)
@@ -53,24 +42,27 @@ public class AbilityTargetState : BattleState
 			tiles.Clear();
 			SelectTiles();
 		}
+
+		else if (e.data == 1)
+			owner.ChangeState<MoveTargetState>();
+
 	}
   
   	protected override void OnClick (object sender, InfoEventArgs<int> e)
   	{
 		if (e.data == 1)
 			owner.ChangeState<UnitState>();
-		/*
-		if (e.data == 0)
+		
+		else if (e.data == 0 && tiles.Contains(owner.currentTile) && owner.currentTile.gameObject != null)
 		{
-			turn.hasUnitActed = true;
-			if (turn.hasUnitMoved)
-				turn.lockMove = true;
-			owner.ChangeState<CommandSelectionState>();
+			List<Tile> args = new List<Tile>{unit.tile};
+			args.Add(owner.currentTile);
+			//turn.hasUnitActed = true;
+			//if (turn.hasUnitMoved)
+			//	turn.lockMove = true;
+			ar.Attack(args, owner.currentUnit);
+			owner.ChangeState<UnitState>();
 		}
-		else
-		{
-		owner.ChangeState<CategorySelectionState>();
-		}*/
   	}
 	void ChangeDirection (Point p)
 	{

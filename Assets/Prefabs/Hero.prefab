@@ -300,7 +300,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dir: 0
-  range: {fileID: 0}
+  attackRange1: {fileID: 0}
+  attackRange2: {fileID: 0}
   turn: {fileID: 0}
   isGood: 0
 --- !u!135 &135304809459833616
